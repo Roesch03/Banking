@@ -24,5 +24,7 @@ jobs:
       run: |
         scp -i ~/.ssh/id_rsa ./index.js root@162.55.191.34:/app/index.js
         scp -i ~/.ssh/id_rsa ./data.json root@162.55.191.34:/app/data.json
+        killall node
+        nohup node index.js
 
 
