@@ -21,7 +21,7 @@ const server = http.createServer((req, res) => {
                 <style>
                     body {
                         font-family: Arial, sans-serif;
-                        background-color: #f4f4f4;
+                        background-color: red;
                         margin: 0;
                         padding: 20px;
                     }
