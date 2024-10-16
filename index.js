@@ -70,7 +70,7 @@ const server = http.createServer((req, res) => {
                         <tr>
                             <td>${account.id}</td>
                             <td>${account.kontoname}</td>
-                            <td>${account.betrag.toFixed(2)}</td>
+                            <td>$${account.betrag.toFixed(2)}</td>
                         </tr>
                     `).join('')}
                     
