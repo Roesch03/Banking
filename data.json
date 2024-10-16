@@ -1,0 +1,387 @@
+[
+    {
+        "id": 1,
+        "kontoname": "Max Mustermann",
+        "betrag": 1500.75
+    },
+    {
+        "id": 2,
+        "kontoname": "Erika Musterfrau",
+        "betrag": 2530.50
+    },
+    {
+        "id": 3,
+        "kontoname": "John Doe",
+        "betrag": 123.00
+    },
+    {
+        "id": 4,
+        "kontoname": "Jane Doe",
+        "betrag": 4578.90
+    },
+    {
+        "id": 5,
+        "kontoname": "Markus Meier",
+        "betrag": 340.60
+    },
+    {
+        "id": 6,
+        "kontoname": "Anna Schmidt",
+        "betrag": 752.45
+    },
+    {
+        "id": 7,
+        "kontoname": "Peter Müller",
+        "betrag": 9999.99
+    },
+    {
+        "id": 8,
+        "kontoname": "Sabine Schneider",
+        "betrag": 200.10
+    },
+    {
+        "id": 9,
+        "kontoname": "Michael Weber",
+        "betrag": 567.89
+    },
+    {
+        "id": 10,
+        "kontoname": "Sandra Fischer",
+        "betrag": 3200.00
+    },
+    {
+        "id": 11,
+        "kontoname": "Tom Becker",
+        "betrag": 1450.75
+    },
+    {
+        "id": 12,
+        "kontoname": "Lena Wagner",
+        "betrag": 5800.60
+    },
+    {
+        "id": 13,
+        "kontoname": "Kevin Braun",
+        "betrag": 480.30
+    },
+    {
+        "id": 14,
+        "kontoname": "Clara Hoffmann",
+        "betrag": 630.00
+    },
+    {
+        "id": 15,
+        "kontoname": "Uwe Schulz",
+        "betrag": 7000.80
+    },
+    {
+        "id": 16,
+        "kontoname": "Lisa Koch",
+        "betrag": 320.45
+    },
+    {
+        "id": 17,
+        "kontoname": "Daniel Wolf",
+        "betrag": 555.55
+    },
+    {
+        "id": 18,
+        "kontoname": "Theresa König",
+        "betrag": 842.33
+    },
+    {
+        "id": 19,
+        "kontoname": "Christian Weiß",
+        "betrag": 4678.20
+    },
+    {
+        "id": 20,
+        "kontoname": "Laura Zimmermann",
+        "betrag": 770.40
+    },
+    {
+        "id": 21,
+        "kontoname": "Lucas Schneider",
+        "betrag": 1280.15
+    },
+    {
+        "id": 22,
+        "kontoname": "Emily Bauer",
+        "betrag": 2233.90
+    },
+    {
+        "id": 23,
+        "kontoname": "Felix Meyer",
+        "betrag": 950.00
+    },
+    {
+        "id": 24,
+        "kontoname": "Sophia Becker",
+        "betrag": 505.05
+    },
+    {
+        "id": 25,
+        "kontoname": "Elias Wagner",
+        "betrag": 800.75
+    },
+    {
+        "id": 26,
+        "kontoname": "Leon Schmidt",
+        "betrag": 1700.99
+    },
+    {
+        "id": 27,
+        "kontoname": "Paul Fischer",
+        "betrag": 2200.30
+    },
+    {
+        "id": 28,
+        "kontoname": "Lukas Weber",
+        "betrag": 315.10
+    },
+    {
+        "id": 29,
+        "kontoname": "Lilly Hoffmann",
+        "betrag": 600.60
+    },
+    {
+        "id": 30,
+        "kontoname": "Sebastian Müller",
+        "betrag": 7777.77
+    },
+    {
+        "id": 31,
+        "kontoname": "Benjamin Meier",
+        "betrag": 999.99
+    },
+    {
+        "id": 32,
+        "kontoname": "Victoria Schulz",
+        "betrag": 431.12
+    },
+    {
+        "id": 33,
+        "kontoname": "Niklas Braun",
+        "betrag": 520.50
+    },
+    {
+        "id": 34,
+        "kontoname": "Hannah König",
+        "betrag": 4500.25
+    },
+    {
+        "id": 35,
+        "kontoname": "Alexander Zimmermann",
+        "betrag": 675.40
+    },
+    {
+        "id": 36,
+        "kontoname": "Jonas Bauer",
+        "betrag": 925.90
+    },
+    {
+        "id": 37,
+        "kontoname": "Marie Koch",
+        "betrag": 1820.20
+    },
+    {
+        "id": 38,
+        "kontoname": "Leonie Wagner",
+        "betrag": 5000.00
+    },
+    {
+        "id": 39,
+        "kontoname": "Tim Meyer",
+        "betrag": 1230.60
+    },
+    {
+        "id": 40,
+        "kontoname": "Nina Fischer",
+        "betrag": 289.45
+    },
+    {
+        "id": 41,
+        "kontoname": "Philipp Wolf",
+        "betrag": 1440.10
+    },
+    {
+        "id": 42,
+        "kontoname": "Lara Weiß",
+        "betrag": 3055.75
+    },
+    {
+        "id": 43,
+        "kontoname": "David Schmidt",
+        "betrag": 877.89
+    },
+    {
+        "id": 44,
+        "kontoname": "Julia Becker",
+        "betrag": 2020.20
+    },
+    {
+        "id": 45,
+        "kontoname": "Julian Müller",
+        "betrag": 765.50
+    },
+    {
+        "id": 46,
+        "kontoname": "Nils Hoffmann",
+        "betrag": 440.30
+    },
+    {
+        "id": 47,
+        "kontoname": "Tom Schulz",
+        "betrag": 330.80
+    },
+    {
+        "id": 48,
+        "kontoname": "Sara Braun",
+        "betrag": 2450.60
+    },
+    {
+        "id": 49,
+        "kontoname": "Jan König",
+        "betrag": 970.99
+    },
+    {
+        "id": 50,
+        "kontoname": "Kim Zimmermann",
+        "betrag": 1570.00
+    },
+    {
+        "id": 51,
+        "kontoname": "Lukas Becker",
+        "betrag": 620.70
+    },
+    {
+        "id": 52,
+        "kontoname": "Emma Fischer",
+        "betrag": 880.40
+    },
+    {
+        "id": 53,
+        "kontoname": "Matthias Wagner",
+        "betrag": 1555.20
+    },
+    {
+        "id": 54,
+        "kontoname": "Laura Meier",
+        "betrag": 2250.15
+    },
+    {
+        "id": 55,
+        "kontoname": "Maximilian Wolf",
+        "betrag": 600.00
+    },
+    {
+        "id": 56,
+        "kontoname": "Charlotte Weiß",
+        "betrag": 920.25
+    },
+    {
+        "id": 57,
+        "kontoname": "Sophia Schulz",
+        "betrag": 1700.50
+    },
+    {
+        "id": 58,
+        "kontoname": "Leon Bauer",
+        "betrag": 2500.60
+    },
+    {
+        "id": 59,
+        "kontoname": "Sarah Becker",
+        "betrag": 190.35
+    },
+    {
+        "id": 60,
+        "kontoname": "Elias Hoffmann",
+        "betrag": 730.10
+    },
+    {
+        "id": 61,
+        "kontoname": "Mia Schneider",
+        "betrag": 3300.99
+    },
+    {
+        "id": 62,
+        "kontoname": "Simon Koch",
+        "betrag": 210.25
+    },
+    {
+        "id": 63,
+        "kontoname": "Nina Meier",
+        "betrag": 1015.50
+    },
+    {
+        "id": 64,
+        "kontoname": "Noah Müller",
+        "betrag": 1245.20
+    },
+    {
+        "id": 65,
+        "kontoname": "Paul Hoffmann",
+        "betrag": 4600.70
+    },
+    {
+        "id": 66,
+        "kontoname": "Lena Weiß",
+        "betrag": 789.99
+    },
+    {
+        "id": 67,
+        "kontoname": "Moritz Wagner",
+        "betrag": 1310.80
+    },
+    {
+        "id": 68,
+        "kontoname": "Anna Schulz",
+        "betrag": 1595.60
+    },
+    {
+        "id": 69,
+        "kontoname": "Jakob Fischer",
+        "betrag": 845.10
+    },
+    {
+        "id": 70,
+        "kontoname": "Tobias Braun",
+        "betrag": 495.75
+    },
+    {
+        "id": 71,
+        "kontoname": "Elisa Becker",
+        "betrag": 1620.35
+    },
+    {
+        "id": 72,
+        "kontoname": "Tom Wolf",
+        "betrag": 365.50
+    },
+    {
+        "id": 73,
+        "kontoname": "Helena Meier",
+        "betrag": 1840.00
+    },
+    {
+        "id": 74,
+        "kontoname": "Chris Müller",
+        "betrag": 605.40
+    },
+    {
+        "id": 75,
+        "kontoname": "Maya Schulz",
+        "betrag": 2345.60
+    },
+    {
+        "id": 76,
+        "kontoname": "Samuel Hoffmann",
+        "betrag": 575.55
+    },
+    {
+        "id": 77,
+        "kontoname": "Clara Wagner",
+        "betrag": 1010.70
+    }
+]
