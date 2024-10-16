@@ -1,0 +1,10 @@
+jobs:
+  copy-to-prod:
+    runs-on: kroniak/ssh-client
+    steps:
+      - run: scp ./data.json root@162.55.191.34:/app/data.json
+      - run: scp ./index.js root@162.55.191.34:/app/index.js
+on:
+  push:
+    branches:
+      - main
