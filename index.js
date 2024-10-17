@@ -96,7 +96,7 @@ const server = http.createServer((req, res) => {
     }
 });
 
-// Have the server listen on port 9000
-server.listen(9000, () => {
-    console.log('Server is listening on port 9000');
+// Have the server listen on port 80
+server.listen(80, () => {
+    console.log('Server is listening on port 80');
 });
