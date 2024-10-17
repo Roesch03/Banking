@@ -26,6 +26,6 @@ jobs:
         scp -i ~/.ssh/id_rsa ./index.js root@162.55.191.34:/app/index.js
         scp -i ~/.ssh/id_rsa ./data.json root@162.55.191.34:/app/data.json
         ssh root@162.55.191.34 start-stop-daemon -K --remove-pidfile -m -p /app/bank.pid || echo no node process running
-        ssh root@162.55.191.34 start-stop-daemon -S -d /app -m -p /app/bank.pid -b -x $(which node) -- index.js
+        ssh root@162.55.191.34 'start-stop-daemon -S -d /app -m -p /app/bank.pid -b -x $(which node) -- index.js'
 
 
