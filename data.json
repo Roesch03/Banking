@@ -1,5 +1,10 @@
 [
     {
+        "id": 0,
+        "kontoname": "Simon Schmieder",
+        "betrag": 0
+    },
+    {
         "id": 1,
         "kontoname": "Max Mustermann",
         "betrag": 1500.75
