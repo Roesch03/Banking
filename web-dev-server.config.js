@@ -12,11 +12,13 @@ if (!["dev", "prod"].includes(mode)) {
   throw new Error(`MODE must be "dev" or "prod", was "${mode}"`);
 }
 
+const api_address = process.env.API_ADDRESS || "localhost";
+
 export default {
   port: 80,
   middleware: [
     proxy("/api/", {
-      target: "http://localhost:8080/",
+      target: `http://${api_address}:8080/`,
     }),
   ],
   nodeResolve: { exportConditions: mode === "dev" ? ["development"] : [] },

@@ -1,0 +1,38 @@
+
+version: '3.7'
+
+services:
+  api-l:
+    container_name: api_server
+    image: api_server
+    build:
+      context: .
+      dockerfile: ./api_serv.dockerfile
+    ports:
+      - '8080:8080'
+    # user: '0' # uncomment to run as root for testing purposes even though Dockerfile defines 'vapor' user.
+    networks:
+      - testNet
+    command:
+      [
+        "node",
+        "index.js",
+      ]
+
+  server-l:
+    container_name: server
+    image: wds
+    environment:
+      - API_ADDRESS=api-l
+    build:
+      context: .
+    restart: always
+    ports:
+      - '80:80'
+    networks:
+      - testNet
+
+networks:
+  testNet:
+    driver: bridge
+
