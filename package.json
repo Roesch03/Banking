@@ -43,6 +43,7 @@
     "lit": "^3.2.0"
   },
   "devDependencies": {
+    "koa-proxies": "^0.12.4",
     "@11ty/eleventy": "^1.0.1",
     "@11ty/eleventy-plugin-syntaxhighlight": "^4.0.0",
     "@babel/eslint-parser": "^7.17.0",

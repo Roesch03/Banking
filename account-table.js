@@ -15,7 +15,7 @@ export class AccountTable extends LitElement {
   }
   _productTask = new Task(this, {
     task: async ([], { signal }) => {
-      const response = await fetch(`/data.json`, { signal });
+      const response = await fetch(`/api/accounts`, { signal });
 
       if (!response.ok) {
         throw new Error(response.status);
