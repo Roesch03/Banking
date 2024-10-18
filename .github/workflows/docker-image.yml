@@ -24,11 +24,11 @@ jobs:
 
     - name: Tag Docker image
       run: |
-         docker tag api_server:latest ghcr.io/${{ github.repository }}/api_server
-         docker tag server:latest ghcr.io/${{ github.repository }}/server
+         docker tag api_server:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+         docker tag server:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/server
       
     # Push the Docker image to GitHub Container Registry
     - name: Push Docker image to GitHub Container Registry
       run: |
-        docker push ghcr.io/${{ github.repository }}/api_server
-        docker push ghcr.io/${{ github.repository }}/server
+        docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+        docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/server
