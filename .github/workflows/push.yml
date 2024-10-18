@@ -27,5 +27,5 @@ jobs:
         ssh root@162.55.191.34 'ps -p $(cat /app/bank.pid)'
         ssh root@162.55.191.34 start-stop-daemon -K --remove-pidfile -m -p /app/bank.pid || echo no node process running
         ssh root@162.55.191.34 'cd /app; npm install && npm update'
-        ssh root@162.55.191.34 'start-stop-daemon -S -d /app -m -p /app/bank.pid -b -x $(which node) -- index.js'
+        ssh root@162.55.191.34 'start-stop-daemon -S -d /app -m -p /app/bank.pid -b -x $(which npm) -- run serve'
         ssh root@162.55.191.34 'ps -p $(cat /app/bank.pid)'
