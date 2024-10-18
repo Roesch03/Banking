@@ -1,0 +1,34 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+
+    steps:
+    - uses: actions/checkout@v4
+     # Log in to the GitHub Container Registry
+    - name: Log in to GitHub Container Registry
+      run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+    - name: Build the Docker image
+      run: docker compose build
+
+    - name: Tag Docker image
+      run: |
+         docker tag api_server:latest ghcr.io/${{ github.repository }}/api_server
+         docker tag server:latest ghcr.io/${{ github.repository }}/server
+      
+    # Push the Docker image to GitHub Container Registry
+    - name: Push Docker image to GitHub Container Registry
+      run: |
+        docker push ghcr.io/${{ github.repository }}/api_server
+        docker push ghcr.io/${{ github.repository }}/server
