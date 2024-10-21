@@ -7,6 +7,6 @@ jobs:
     container: mongo
     steps:
       - name: a
-        run: ls -lAh
+        run: ls -lAh $GITHUB_WORKSPACE
       - name: migrate
-        run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
+        run: mongoimport --db banking --collection accounts --file $GITHUB_WORKSPACE/data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
