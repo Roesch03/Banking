@@ -73,19 +73,14 @@
     <header>
         <div class="header">
             <h1>Kontoübersicht</h1>
-            <input type="text" placeholder="Sender" style="padding: 5px;">
-            <input type="text" placeholder="Empfänger" style="padding: 5px;">
-            <input type="number" placeholder="Betrag" style="padding: 5px;">
+            <input type="number" placeholder="Sender" style="padding: 5px;" id="from">
+            <input type="number" placeholder="Empfänger" style="padding: 5px;" id="to">
+            <input type="number" placeholder="Betrag" style="padding: 5px;" id="amount">
             <button class="button" onclick="send()">Senden</button>
         </div>
     </header>
     <account-table>account-table</account-table>
-    <script>
-        function send() {
-            // Add your send logic here
-            alert('Send button clicked!');
-        }
-    </script>
+    <script src="./transaction.js"></script>
 </body>
 
 </html>
