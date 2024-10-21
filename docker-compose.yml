@@ -1,10 +1,6 @@
-
-version: '3.7'
-
 services:
-
   mongo-db-l:
-    container: mongo_db
+    container_name: mongo_db
     image: mongo
     ports:
       - '27017:27017'
@@ -12,17 +8,16 @@ services:
       - testNet
     volumes:
       - './data:/data/db'
-
   api-l:
     container_name: api_server
     image: ghcr.io/roesch03/banking/api_server
+    environment:
+      - MONGO_ADDRESS=mongo-db-l
     build:
       context: .
       dockerfile: ./api_serv.dockerfile
     ports:
       - '8080:8080'
-    enviroment:
-      - MONGO_ADDRESS=mongo-db-l
     # user: '0' # uncomment to run as root for testing purposes even though Dockerfile defines 'vapor' user.
     networks:
       - testNet
@@ -31,7 +26,6 @@ services:
         "node",
         "index.js",
       ]
-
   server-l:
     container_name: wds
     image: ghcr.io/roesch03/banking/wds
