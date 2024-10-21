@@ -4,9 +4,11 @@ on: workflow_dispatch
 jobs:
   migrate:
     runs-on: ubuntu-latest
-    container: mongo
     steps:
-      - name: a
-        run: ls -lAh $GITHUB_WORKSPACE
+      - name: Setup mongodb-tools
+        run: |
+          wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-ubuntu2204-x86_64-100.6.1.deb
+          sudo apt install ./mongodb-database-tools-*-100.6.1.deb
+          mongorestore --version
       - name: migrate
-        run: mongoimport --db banking --collection accounts --file $GITHUB_WORKSPACE/data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
+        run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
