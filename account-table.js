@@ -44,6 +44,7 @@ export class AccountTable extends LitElement {
       if (response.ok) {
         const jsonData = await response.json();
         this.data = jsonData; // Daten in der Tabelle speichern
+        this.requestUpdate(); // Komponente neu rendern
       } else {
         console.error("Fehler beim Laden der Tabelle");
       }
