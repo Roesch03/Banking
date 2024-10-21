@@ -2,6 +2,17 @@
 version: '3.7'
 
 services:
+
+  mongo-db-l:
+    container: mongo_db
+    image: mongo
+    ports:
+      - '27017:27017'
+    networks:
+      - testNet
+    volumes:
+      - './data:/data/db'
+
   api-l:
     container_name: api_server
     image: ghcr.io/roesch03/banking/api_server
@@ -33,17 +44,6 @@ services:
       - '80:80'
     networks:
       - testNet
-
-  mongo-db-l:
-    container: mongo_db
-    image: mongo
-    ports:
-      - '27017:27017'
-    networks:
-      - testNet
-    volumes:
-      - './data:/data/db'
-
 
 networks:
   testNet:
