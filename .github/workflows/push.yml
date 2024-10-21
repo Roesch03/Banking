@@ -6,7 +6,8 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-ssh:
+    if: false
     runs-on: ubuntu-latest
 
     steps:
