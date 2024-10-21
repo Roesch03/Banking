@@ -29,8 +29,8 @@ jobs:
 
     - name: Tag Docker image
       run: |
-         docker tag api_server:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
-         docker tag wds:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
+         docker tag roesch03/banking/api_server:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+         docker tag roesch03/banking/wds:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
       
     # Push the Docker image to GitHub Container Registry
     - name: Push Docker image to GitHub Container Registry
