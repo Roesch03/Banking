@@ -1,7 +1,5 @@
 name: Migrate Data to mongo-db
-
-on:
-  workflow_dispatch:
+on: workflow_dispatch
 
 jobs:
   migrate:
