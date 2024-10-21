@@ -9,4 +9,4 @@ jobs:
       - uses: actions/checkout@v4
        # Log in to the GitHub Container Registry
       - name: migrate
-        run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
+        run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/" --mode=upsert --upsertFields=id
