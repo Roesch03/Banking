@@ -27,16 +27,10 @@ jobs:
     - name: Build the Docker image
       run: docker compose build
 
-    - name: Tag Docker image
-      run: |
-         docker tag roesch03/banking/api_server:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
-         docker tag roesch03/banking/wds:latest ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
-      
-    # Push the Docker image to GitHub Container Registry
     - name: Push Docker image to GitHub Container Registry
       run: |
-        docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
-        docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+        docker push ghcr.io/roesch03/banking/wds
+        docker push ghcr.io/roesch03/banking/api_server
 
   deploy:
     needs: build
@@ -56,5 +50,5 @@ jobs:
           scp -i ~/.ssh/id_rsa ./docker-compose.yml root@162.55.191.34:/app/docker-compose.yml
       - name: start compose
         run: |
-          ssh root@162.55.191.34 'echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin; docker pull ghcr.io/$(echo ${{ github.repository }} | awk '\''{print tolower($0)}'\'')/wds; docker pull ghcr.io/$(echo ${{ github.repository }} | awk '\''{print tolower($0)}'\'')/api_server; cd /app; if [[ $(docker compose ps | wc -l) -gt 1 ]]; then docker compose down; fi; docker compose up -d; docker compose ps; docker compose logs'
+          ssh root@162.55.191.34 'echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin; docker pull ghcr.io/roesch03/banking/wds; docker pull ghcr.io/roesch03/banking/api_server; cd /app; if [[ $(docker compose ps | wc -l) -gt 1 ]]; then docker compose down; fi; docker compose up -d; docker compose ps; docker compose logs'
  
