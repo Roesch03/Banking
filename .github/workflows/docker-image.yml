@@ -51,14 +51,10 @@ jobs:
           echo "${{ secrets.PRIVATE_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H 162.55.191.34 >> ~/.ssh/known_hosts
-      - name: Log in to GitHub Container Registry
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
       - name: push compose
         run: |
           scp -i ~/.ssh/id_rsa ./docker-compose.yml root@162.55.191.34:/app/docker-compose.yml
-          docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
-          docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
       - name: start compose
         run: |
-          ssh root@162.55.191.34 'cd /app; if [[ $(docker compose ps | wc -l) -gt 1 ]]; then docker compose down; fi; docker compose up -d; docker compose ps; docker compose logs'
+          ssh root@162.55.191.34 'echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin; docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds; docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server; cd /app; if [[ $(docker compose ps | wc -l) -gt 1 ]]; then docker compose down; fi; docker compose up -d; docker compose ps; docker compose logs'
  
