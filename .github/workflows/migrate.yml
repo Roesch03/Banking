@@ -1,0 +1,12 @@
+name: Migrate Data to mongo-db
+
+on:
+  workflow_dispatch:
+
+jobs:
+  migrate:
+    runs-on: mongo
+
+    steps:
+      - name: migrate
+        run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
