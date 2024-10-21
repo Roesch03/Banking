@@ -60,11 +60,5 @@ jobs:
           docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
       - name: start compose
         run: |
-          cd /app
-          if [[ $(docker compose ps | wc -l) -gt 1 ]]; then
-            docker compose down
-          fi
-          docker compose up -d
-          docker compose ps
-          docker compose logs
+          ssh root@162.55.191.34 'cd /app; if [[ $(docker compose ps | wc -l) -gt 1 ]]; then docker compose down; fi; docker compose up -d; docker compose ps; docker compose logs'
  
