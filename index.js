@@ -1,13 +1,9 @@
 import { createServer } from "http";
-import { parse } from "url";
-import { readFileSync } from "node:fs";
 import { MongoClient, ServerApiVersion } from "mongodb";
-
-async function accounts() {
+const port = Number(8080);
+const mongo_client = await (async () => {
   const mongo_address = process.env.MONGO_ADDRESS || "localhost";
-  // mongodb://localhost:27017
   const uri = `mongodb://${mongo_address}:27017/`;
-  // Create a MongoClient with a MongoClientOptions object to set the Stable API version
   const client = new MongoClient(uri, {
     serverApi: {
       version: ServerApiVersion.v1,
@@ -16,22 +12,27 @@ async function accounts() {
     },
   });
   await client.connect();
-  // Send a ping to confirm a successful connection
-  const res = await client
+  return client;
+})();
+
+async function accounts() {
+  return await mongo_client
     .db("banking")
     .collection("accounts")
     .find()
     .toArray();
-  // Ensures that the client will close when you finish/error
-  await client.close();
-  return res;
 }
 
 const server = createServer(async (req, res) => {
   // Parse the request url
-  const reqUrl = parse(req.url).pathname;
+  const reqUrl = new URL(
+    `${port == 80 ? "http" : "https"}://${process.env.HOST ?? "localhost"}${
+      req.url
+    }`
+  );
+  const reqPath = reqUrl.pathname;
 
-  if (reqUrl == "/api/accounts") {
+  if (reqPath == "/api/accounts") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.write(JSON.stringify(await accounts()));
     res.end();
@@ -43,6 +44,6 @@ const server = createServer(async (req, res) => {
 });
 
 // Have the server listen on port 80
-server.listen(8080, () => {
-  console.log("Server is listening on port 80");
+server.listen(port, () => {
+  console.log(`Server is listening on port ${port}`);
 });
