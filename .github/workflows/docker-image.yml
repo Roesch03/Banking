@@ -60,6 +60,7 @@ jobs:
           docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
       - name: start compose
         run: |
+          cd /app
           if [[ $(docker compose ps | wc -l) -gt 1 ]]; then
             docker compose down
           fi
