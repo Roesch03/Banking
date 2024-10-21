@@ -3,8 +3,8 @@ on: workflow_dispatch
 
 jobs:
   migrate:
-    runs-on: mongo
-
+    runs-on: ubuntu-latest
+    container: mongo
     steps:
       - name: migrate
         run: mongoimport --db banking --collection accounts --file data.json --jsonArray --uri "mongodb://162.55.191.34:27017/"
