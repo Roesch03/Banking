@@ -4,7 +4,7 @@ version: '3.7'
 services:
   api-l:
     container_name: api_server
-    image: roesch03/banking/api_server
+    image: rghcr.io/oesch03/banking/api_server
     build:
       context: .
       dockerfile: ./api_serv.dockerfile
@@ -21,7 +21,7 @@ services:
 
   server-l:
     container_name: wds
-    image: roesch03/banking/wds
+    image: ghcr.io/roesch03/banking/wds
     environment:
       - API_ADDRESS=api-l
     build:
