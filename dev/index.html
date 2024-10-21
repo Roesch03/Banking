@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <script src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
@@ -12,47 +13,79 @@
             margin: 0;
             padding: 20px;
         }
+
+
+        input {
+            padding: 1px;
+            font-size: 14px;
+            border-radius: 15px;
+            border: 1px solid #ccc;
+        }
+
+        header {
+            background-color: #6200ea;
+            color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
-        th, td {
+
+        th,
+        td {
             border: 1px solid #ccc;
             padding: 10px;
             text-align: left;
         }
+
         th {
             background-color: #e2e2e2;
         }
+
         .header {
             display: flex;
             justify-content: space-between;
             margin-bottom: 20px;
         }
+
         .button {
-            background-color: #6200ea;
+            background-color: #ccc;
             color: white;
             border: none;
             padding: 10px 20px;
             cursor: pointer;
+            border-radius: 15px;
+
         }
+
         .button:hover {
             background-color: #3700b3;
         }
     </style>
 </head>
+
 <body>
-<div class="header">
-    <h1>Kontoübersicht</h1>
-    <button class="button" onclick="send()">Senden</button>
-</div>
-<account-table>account-table</account-table>
-<script>
-    function send() {
-        // Add your send logic here
-        alert('Send button clicked!');
-    }
-</script>
+    <header>
+        <div class="header">
+            <h1>Kontoübersicht</h1>
+            <input type="text" placeholder="Sender" style="padding: 5px;">
+            <input type="text" placeholder="Empfänger" style="padding: 5px;">
+            <input type="number" placeholder="Betrag" style="padding: 5px;">
+            <button class="button" onclick="send()">Senden</button>
+        </div>
+    </header>
+    <account-table>account-table</account-table>
+    <script>
+        function send() {
+            // Add your send logic here
+            alert('Send button clicked!');
+        }
+    </script>
 </body>
+
 </html>
