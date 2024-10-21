@@ -37,3 +37,33 @@ jobs:
       run: |
         docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
         docker push ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+  
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.PRIVATE_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 162.55.191.34 >> ~/.ssh/known_hosts
+      - name: Log in to GitHub Container Registry
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: push compose
+        run: |
+          scp -i ~/.ssh/id_rsa ./docker-compose.yml root@162.55.191.34:/app/docker-compose.yml
+          docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/wds
+          docker pull ghcr.io/$(echo ${{ github.repository }} | awk '{print tolower($0)}')/api_server
+      - name: start compose
+        run: |
+          if [[ $(docker compose ps | wc -l) -gt 1 ]]; then
+            docker compose down
+          fi
+          docker compose up -d
+          docker compose ps
+          docker compose logs
+ 
