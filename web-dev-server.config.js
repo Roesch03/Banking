@@ -18,7 +18,10 @@ export default {
   port: 80,
   middleware: [
     proxy("/api/", {
-      target: `http://${api_address}:8080/`,
+      target: `http://${api_address}:3001/`,
+    }),
+    proxy("/transactions", {
+      target: `http://${api_address}:3001/`,
     }),
   ],
   nodeResolve: { exportConditions: mode === "dev" ? ["development"] : [] },

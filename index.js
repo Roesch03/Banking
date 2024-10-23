@@ -1,6 +1,8 @@
 import { createServer } from "http";
 import { MongoClient, ServerApiVersion } from "mongodb";
-const port = Number(8080);
+import { transaction_post, internal_transaction } from "./transaction_rec.js";
+
+const port = Number(3001);
 const mongo_client = await (async () => {
   const mongo_address = process.env.MONGO_ADDRESS || "localhost";
   const uri = `mongodb://${mongo_address}:27017/`;
@@ -20,6 +22,15 @@ async function accounts() {
     .db("banking")
     .collection("accounts")
     .find()
+    .toArray();
+}
+
+async function transactions() {
+  return await mongo_client
+    .db("banking")
+    .collection("transactions")
+    .find()
+    .sort({ height: 1 })
     .toArray();
 }
 
@@ -51,7 +62,30 @@ const server = createServer(async (req, res) => {
   );
   const reqPath = reqUrl.pathname;
 
-  if (reqPath == "/api/accounts") {
+  if (reqPath == "transactions") {
+    if (req.method == "POST") {
+      var body = "";
+
+      req.on("data", function (data) {
+        body += data;
+
+        // Too much POST data, kill the connection!
+        // 1e6 === 1 * Math.pow(10, 6) === 1 * 1000000 ~~~ 1MB
+        if (body.length > 1e6) req.connection.destroy();
+      });
+
+      req.on("end", async function () {
+        const trans = JSON.parse(body);
+        await transaction_post(trans, mongo_client);
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end();
+      });
+    } else {
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.write(JSON.stringify(await transactions()));
+      res.end();
+    }
+  } else if (reqPath == "/api/accounts") {
     res.writeHead(200, { "Content-Type": "application/json" });
     res.write(JSON.stringify(await accounts()));
     res.end();
