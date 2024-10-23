@@ -102,22 +102,10 @@ const server = createServer(async (req, res) => {
 
     req.on("end", async function () {
       const trans = JSON.parse(body);
-      if (
-        trans.hasOwnProperty("from") &&
-        trans.hasOwnProperty("to") &&
-        trans.hasOwnProperty("amount") &&
-        (await id_exists(trans.from)) &&
-        (await id_exists(trans.to))
-      ) {
-        await transaction(trans.from, trans.to, trans.amount);
-        res.writeHead(200, { "Content-Type": "application/json" });
-        res.write(JSON.stringify({ success: true }));
-        res.end();
-      } else {
-        res.writeHead(404, { "Content-Type": "application/json" });
-        res.write(JSON.stringify({ success: false }));
-        res.end();
-      }
+      await internal_transaction(trans);
+      res.writeHead(200, { "Content-Type": "application/json" });
+      res.write(JSON.stringify({ success: true }));
+      res.end();
     });
   } else {
     res.writeHead(404, { "Content-Type": "text/plain" });
