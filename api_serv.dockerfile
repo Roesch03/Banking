@@ -1,6 +1,6 @@
 FROM node
 WORKDIR /app
-COPY ./index.js ./index.js
+COPY ./*.js ./
 COPY ./*.json ./
 RUN npm i
 EXPOSE 8080
