@@ -41,7 +41,7 @@ export async function internal_transaction(block) {
   s.update(block.to.toString());
   s.update(block.amount.toString());
   s.update(block.prev_hash.toString());
-  block.sign = s.sign(block.private);
+  block.sign = s.sign(block.private).toString("base64");
   delete block.private;
   for (const address in addresses) {
     const response = await fetch(`http://${address}:3001/api/transaction`, {
