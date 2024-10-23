@@ -36,6 +36,8 @@ export async function internal_transaction(block, client) {
   const s = createSign("SHA256");
   block.height = last.height + 1;
   block.prev_hash = last.sign;
+  console.log("block: ", block);
+  console.log("last: ", last);
   s.update(block.height.toString());
   s.update(block.from);
   s.update(block.to);
