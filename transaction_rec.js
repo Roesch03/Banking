@@ -1,5 +1,5 @@
 import { createSign, createVerify } from "crypto";
-const addresses = [""];
+const addresses = ["116.203.93.180", "162.55.191.34"];
 
 function transaction_verify(block, last_block) {
   const v = createVerify("SHA256");
