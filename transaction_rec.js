@@ -26,7 +26,7 @@ export async function transaction_post(block, client) {
 
 const hardcoded_json = {};
 
-export async function internal_transaction(block) {
+export async function internal_transaction(block, client) {
   const last = await client
     .db("banking")
     .collection("transactions")

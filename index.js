@@ -102,7 +102,7 @@ const server = createServer(async (req, res) => {
 
     req.on("end", async function () {
       const trans = JSON.parse(body);
-      await internal_transaction(trans);
+      await internal_transaction(trans, mongo_client);
       res.writeHead(200, { "Content-Type": "application/json" });
       res.write(JSON.stringify({ success: true }));
       res.end();
