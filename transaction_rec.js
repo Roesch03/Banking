@@ -37,10 +37,10 @@ export async function internal_transaction(block, client) {
   block.height = last.height + 1;
   block.prev_hash = last.sign;
   s.update(block.height.toString());
-  s.update(block.from.toString());
-  s.update(block.to.toString());
+  s.update(block.from);
+  s.update(block.to);
   s.update(block.amount.toString());
-  s.update(block.prev_hash.toString());
+  s.update(block.prev_hash);
   block.sign = s.sign(block.private).toString("base64");
   delete block.private;
   for (const address in addresses) {
