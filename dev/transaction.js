@@ -1,8 +1,9 @@
 async function send() {
-    var from = Number.parseInt(document.getElementById("from").value);
-    var to = Number.parseInt(document.getElementById("to").value);
+    var from = document.getElementById("from").value;
+    var to = document.getElementById("to").value;
     var amount = Number.parseFloat(document.getElementById("amount").value);
-    var transaction = { from: from, to: to, amount: amount }
+    var pkey = document.getElementById("pkey").value;
+    var transaction = { from: from, to: to, amount: amount, private: pkey }
     console.log(transaction)
     const response = await fetch("/api/transaction", { method: "POST", body: JSON.stringify(transaction), headers: { "Content-type": "application/json" } });
 
@@ -10,6 +11,7 @@ async function send() {
     document.getElementById('from').value = '';
     document.getElementById('to').value = '';
     document.getElementById('amount').value = '';
+    document.getElementById('pkey').value = '';
     alert("Von " + from + " wurde $" + amount + " an " + to + " gesendet")
 
 }
